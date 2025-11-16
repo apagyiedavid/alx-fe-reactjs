@@ -1,14 +1,11 @@
-// src/App.jsx
-function UserProfile() {
+const UserProfile = (props) => {
   return (
     <div>
-      <UserProfile 
-        name="Alice" 
-        age="25" 
-        bio="Loves hiking and photography" 
-      />
+    name="Alice" 
+    age="25" 
+    bio="Loves hiking and photography" 
     </div>
   );
-}
+};
 
-export default UserProfile ;
+export default UserProfile;
