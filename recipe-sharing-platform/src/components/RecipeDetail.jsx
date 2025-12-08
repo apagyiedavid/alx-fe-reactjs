@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import recipesData from "../data.json";
 
+
 function RecipeDetail() {
   const { id } = useParams();
 
@@ -13,7 +14,7 @@ function RecipeDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-blue-100 p-6">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md">
         <img
           src={recipe.image}

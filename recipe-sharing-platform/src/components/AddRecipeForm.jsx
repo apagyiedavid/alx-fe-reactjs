@@ -38,10 +38,10 @@ function AddRecipeForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-blue-100 flex items-center justify-center p-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-white w-full max-w-lg p-6 rounded-lg shadow-md"
+        className="black-white w-full max-w-lg p-6 rounded-lg shadow-md"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add New Recipe
