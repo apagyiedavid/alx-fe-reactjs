@@ -23,7 +23,7 @@ function HomePage() {
        </Link>
 
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="ggrid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {recipes.map((recipe) => (
           <div
             key={recipe.id}
