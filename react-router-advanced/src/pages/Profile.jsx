@@ -1,14 +1,21 @@
-import { useParams } from 'react-router-dom';
+import { Link, Routes, Route } from "react-router-dom";
+import ProfileDetails from "./ProfileDetails";
+import ProfileSettings from "./ProfileSettings";
 
 function Profile() {
-  // If you want to use URL parameters
-  const { username } = useParams();
-  
   return (
     <div>
-      <h1 className="text-3xl font-bold">Profile Page</h1>
-      <p>Welcome to your profile!</p>
-      {username && <p>Username: {username}</p>}
+      <h2>Profile Page</h2>
+
+      <nav>
+        <Link to="details">Details</Link> |{" "}
+        <Link to="settings">Settings</Link>
+      </nav>
+
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 }

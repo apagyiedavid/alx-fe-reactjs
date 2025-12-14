@@ -1,20 +1,29 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import Post from "./pages/Post";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link> | 
-        <Link to="/profile">Profile</Link>
-      </nav>
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+
+      {/* Protected Route */}
+      <Route
+        path="/profile/*"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Dynamic Route */}
+      <Route path="/post/:id" element={<Post />} />
+    </Routes>
   );
 }
 
