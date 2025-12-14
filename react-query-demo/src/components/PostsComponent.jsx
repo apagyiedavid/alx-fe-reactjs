@@ -11,42 +11,35 @@ const fetchPosts = async () => {
 };
 
 function PostsComponent() {
-  const {
-    data: posts,
-    isLoading,
-    isError,
-    error,
-    refetch,
-  } = useQuery(
-    "posts",
+  const query = useQuery(
+    ["posts"],            // ✅ array key (important)
     fetchPosts,
     {
-      // ✅ REQUIRED ADVANCED OPTIONS
-      cacheTime: 1000 * 60 * 5,          // 5 minutes
-      staleTime: 1000 * 60 * 1,          // 1 minute
-      refetchOnWindowFocus: false,
-      keepPreviousData: true,
+      cacheTime: 1000 * 60 * 5,          // ✅ required
+      staleTime: 1000 * 60 * 1,          // ✅ required
+      refetchOnWindowFocus: false,       // ✅ required
+      keepPreviousData: true,            // ✅ required
     }
   );
 
-  if (isLoading) {
+  if (query.isLoading) {
     return <p>Loading posts...</p>;
   }
 
-  if (isError) {
-    return <p>Error: {error.message}</p>;
+  if (query.isError) {
+    return <p>Error: {query.error.message}</p>;
   }
 
   return (
     <div style={{ padding: "20px" }}>
       <h2>Posts</h2>
 
-      <button onClick={refetch} style={{ marginBottom: "10px" }}>
+      <button onClick={query.refetch} style={{ marginBottom: "10px" }}>
         Refetch Posts
       </button>
 
       <ul>
-        {posts.slice(0, 10).map((post) => (
+        {query.data.slice(0, 10).map((post) => (
           <li key={post.id}>
             <strong>{post.title}</strong>
           </li>

@@ -1,21 +1,21 @@
-import { Link, Routes, Route } from "react-router-dom";
-import ProfileDetails from "../pages/ProfileDetails";
-import ProfileSettings from "../pages/ProfileSettings";
+import { Link, Outlet } from "react-router-dom";
 
 function Profile() {
   return (
-    <div>
-      <h2>Profile Page</h2>
+    <div className="max-w-xl mx-auto bg-white p-6 rounded shadow">
+      <h2 className="text-2xl font-bold mb-4">Profile</h2>
 
-      <nav>
-        <Link to="details">Details</Link> |{" "}
-        <Link to="settings">Settings</Link>
-      </nav>
+      <div className="flex gap-4 mb-6">
+        <Link to="" className="text-blue-600 hover:underline">
+          Details
+        </Link>
 
-      <Routes>
-        <Route path="details" element={<ProfileDetails />} />
-        <Route path="settings" element={<ProfileSettings />} />
-      </Routes>
+        <Link to="settings" className="text-blue-600 hover:underline">
+          Settings
+        </Link>
+      </div>
+
+      <Outlet />
     </div>
   );
 }

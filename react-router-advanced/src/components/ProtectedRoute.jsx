@@ -4,7 +4,9 @@ function ProtectedRoute({ children }) {
   const isAuthenticated = false; // simulate auth
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return (
+      <Navigate to="/blog/1" replace />
+    );
   }
 
   return children;
